@@ -29,13 +29,17 @@ df %>%
 
 k.means.4 <- kmeans(df_full_dataset_no_ed_beds_m, centers = 4, nstart = 20)         
 
-df %>%
+p <- df %>%
   mutate(cluster = factor(k.means.4$cluster)) %>%
   ggplot(aes(x = log2(municipality_population),
              y = football_stadium_capacity,
              color = cluster)) +
   geom_point() +
   geom_label_repel(aes(label = school))
+
+p
+
+ggsave("../figs/03_kmeans_4_scatterplot.png", p, width = 12, height = 7, units = "in")
 
 k.means.5 <- kmeans(df_full_dataset_no_ed_beds_m, centers = 5, nstart = 20)         
 
