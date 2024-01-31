@@ -12,7 +12,7 @@ df_clean <- df %>%
          -source_municipality_population,
          -municipality_population_year) %>%
   var_labels(
-    school = "College/University",
+    school = "Name of College/University",
     municipality_name = "Municipality",
     municipality_county = "County",
     municipality_state = "State",
