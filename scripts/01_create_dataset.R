@@ -11,7 +11,6 @@ df_clean <- df %>%
          -`...16`,
          -source_municipality_population,
          -municipality_population_year) %>%
-  mutate(acc_chest_pain_accreditation_or_certification = if_else(acc_chest_pain_accreditation_or_certification == "no?", "no", acc_chest_pain_accreditation_or_certification)) %>%
   var_labels(
     school = "College/University",
     municipality_name = "Municipality",
