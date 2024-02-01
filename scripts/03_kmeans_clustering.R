@@ -1,6 +1,8 @@
 library(tidyverse)
 library(ggrepel)
 
+set.seed(5454)
+
 df <- read_rds("../data/clean/01_clean_dataset.rds")
 
 df_full_dataset_no_ed_beds <- df %>%
@@ -9,7 +11,7 @@ df_full_dataset_no_ed_beds <- df %>%
          distance_nearest_emergency_department_miles,
          academic_hospital_in_municipality,
          is_closest_ed_free_standing,
-         # this is missing right now acc_chest_pain_accreditation_or_certification
+         acc_chest_pain_accreditation_or_certification
          ) %>%
   mutate(across(where(is.numeric), ~scale(.)[, 1])) %>%
   mutate(across(where(is.character), ~if_else(. == "yes", 1, 0)))
