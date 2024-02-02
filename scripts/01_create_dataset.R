@@ -45,7 +45,7 @@ df_clean <- df_hosp %>%
     distance_nearest_emergency_department_miles = "Distance to nearest ED (miles)",
     # academic_hospital_in_municipality = "Academic hospital present in municipality", this variable turned out to be kind of vague
     is_closest_ed_free_standing = "Closest ED is free standing",
-    acc_chest_pain_accreditation_or_certification = "Closest ED has ACC Chest Pain Accreditation or Certification",
+    acc_accreditation_or_certification = "Closest ED has ACC Chest Pain Accreditation or Certification",
     closest_ed_number_beds = "Number of beds in closest ED",
     teaching_hospital_in_municipality = "Teaching hospital in municipality"  # this variable is defined by CMS data from 2022
   )
