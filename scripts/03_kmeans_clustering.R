@@ -11,7 +11,8 @@ df_full_dataset_no_ed_beds <- df %>%
          distance_nearest_emergency_department_miles,
          teaching_hospital_in_municipality,
          is_closest_ed_free_standing,
-         acc_accreditation_or_certification
+         acc_accreditation_or_certification,
+         primary_care_physicians
          ) %>%
   mutate(across(where(is.numeric), ~scale(.)[, 1])) %>%
   mutate(across(where(is.character), ~if_else(. == "yes", 1, 0)))
