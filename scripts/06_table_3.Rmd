@@ -20,20 +20,30 @@ knitr::opts_chunk$set(echo = FALSE,
 ```{r}
 df %>%
   left_join(., clusters_3) %>%
-  select(conference, football_stadium_capacity, municipality_population, distance_nearest_emergency_department_miles, is_closest_ed_free_standing, acc_accreditation_or_certification, closest_ed_number_beds, teaching_hospital_in_municipality, cluster) %>%
+  select(conference, football_stadium_capacity, municipality_population, distance_nearest_emergency_department_miles, is_closest_ed_free_standing, acc_accreditation_or_certification, closest_ed_number_beds, teaching_hospital_in_municipality, drug_overdose_deaths, injury_deaths, primary_care_physicians, alcohol_impaired_driving_deaths, excessive_drinking, cluster) %>%
   tbl_summary(by = "cluster")
 ```
 
 ```{r}
 df %>%
   left_join(., clusters_4) %>%
-  select(conference, football_stadium_capacity, municipality_population, distance_nearest_emergency_department_miles, is_closest_ed_free_standing, acc_accreditation_or_certification, closest_ed_number_beds, teaching_hospital_in_municipality, cluster) %>%
+  select(conference, football_stadium_capacity, municipality_population, distance_nearest_emergency_department_miles, is_closest_ed_free_standing, acc_accreditation_or_certification, closest_ed_number_beds, teaching_hospital_in_municipality, drug_overdose_deaths, injury_deaths, primary_care_physicians, alcohol_impaired_driving_deaths, excessive_drinking, cluster) %>%
   tbl_summary(by = "cluster")
 ```
+
+Schools in each cluster:
+```{r}
+df %>%
+  left_join(., clusters_4) %>%
+  select(school, cluster) %>%
+  arrange(cluster, school) %>%
+  knitr::kable()
+```
+
 
 ```{r}
 df %>%
   left_join(., clusters_5) %>%
-  select(conference, football_stadium_capacity, municipality_population, distance_nearest_emergency_department_miles, is_closest_ed_free_standing, acc_accreditation_or_certification, closest_ed_number_beds, teaching_hospital_in_municipality, cluster) %>%
+  select(conference, football_stadium_capacity, municipality_population, distance_nearest_emergency_department_miles, is_closest_ed_free_standing, acc_accreditation_or_certification, closest_ed_number_beds, teaching_hospital_in_municipality, drug_overdose_deaths, injury_deaths, primary_care_physicians, alcohol_impaired_driving_deaths, excessive_drinking, cluster) %>%
   tbl_summary(by = "cluster")
 ```
