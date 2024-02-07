@@ -1,13 +1,12 @@
 library(tidyverse)
 library(ggrepel)
 library(haven)
-library(dslabs)
 library (ggplot2)
 
 auburn_orange <- '#F66733'
 auburn_blue <- '#0021A5'
 
-ed <- read_sheet('https://docs.google.com/spreadsheets/d/1DBve4JLWO-tCRHOF8aTBYVG_T5ndqQikje37zUBLCMU/edit#gid=0')
+ed <- read_rds("../data/clean/01_clean_dataset.rds")
 
 ed
 
