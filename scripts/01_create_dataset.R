@@ -4,7 +4,7 @@ library(sjlabelled)
 library(haven)
 library(readxl)
 
-df <- read_sheet("https://docs.google.com/spreadsheets/d/1DBve4JLWO-tCRHOF8aTBYVG_T5ndqQikje37zUBLCMU/edit#gid=0") %>%
+df <- read_sheet("https://docs.google.com/spreadsheets/d/1DBve4JLWO-tCRHOF8aTBYVG_T5ndqQikje37zUBLCMU/edit') %>%
   mutate(municipality_county = ifelse(str_detect(municipality_county, fixed("parish", ignore_case = TRUE)),
                           municipality_county,
                           paste0(municipality_county, " County")
