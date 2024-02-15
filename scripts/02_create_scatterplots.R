@@ -51,7 +51,7 @@ p <- ed %>%
        title = 'Scatterplot of Football Stadium Capacity vs the Number of Beds in the Closest Emergency Department') +
   theme_minimal()
 
-ggsave('../figs/Distance to Nearest ED vs Football Stadium Capacity.pdf',p, width = 14, height = 6, units = 'in')
+ggsave('../figs/Closest ED number of beds vs Football Stadium Capacity.pdf',p, width = 14, height = 6, units = 'in')
 
 ggsave('../figs/Distance to Nearest ED vs. Football Stadium Capacity.pdf',f, width = 14, height = 6, units = 'in')
 
