@@ -52,7 +52,7 @@ p <- df %>%
              color = cluster)) +
   geom_point() +
   geom_label_repel(aes(label = school), size = 3, show.legend = FALSE) +
-  ggthemes::theme_tufte() +
+  ggthemes::theme_clean() +
   scale_color_manual(values = c("#0b2341", "#e86100", "#006c9a", "#215834"),
                      name = "Cluster assignment from\nKmeans algorithm") +
   labs(
