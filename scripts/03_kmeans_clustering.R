@@ -71,3 +71,4 @@ df %>%
              color = cluster)) +
   geom_point() +
   geom_label_repel(aes(label = school))
+

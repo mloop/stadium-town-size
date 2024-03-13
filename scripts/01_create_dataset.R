@@ -35,7 +35,7 @@ df_hosp <- df %>%
   mutate(teaching_hospital_in_municipality = if_else(is.na(teaching_hospital_in_municipality), 0, teaching_hospital_in_municipality))
 
 # Add county health rankings data
-county <- read_sas("../data/raw/analytic_data2023_0.sas7bdat") %>%
+county <- read_sas("../data/raw/analytic_data2023_0 (4).sas7bdat") %>%
   select(
     state,
     county,
