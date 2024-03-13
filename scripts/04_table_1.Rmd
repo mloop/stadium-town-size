@@ -4,26 +4,26 @@ output: html_document
 date: "2024-01-26"
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+```{r, include=FALSE}
+library(tidyverse)
+library(gtsummary)
+library(sjlabelled)
+
+df <- read_rds("../data/clean/01_clean_dataset.rds") %>%
+  mutate(ratio = football_stadium_capacity / log2(municipality_population)) %>%
+  var_labels(
+    ratio = "Ratio of stadium capacity to log2(municipality population)"
+  )
+
+knitr::opts_chunk$set(echo = FALSE,
+                      message = FALSE)
 ```
 
-## R Markdown
-
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r cars}
-summary(cars)
+```{r}
+df %>%
+  select(conference, football_stadium_capacity, municipality_population, ratio, distance_nearest_emergency_department_miles, is_closest_ed_free_standing, acc_accreditation_or_certification, closest_ed_number_beds, teaching_hospital_in_municipality, drug_overdose_deaths, injury_deaths, primary_care_physicians, alcohol_impaired_driving_deaths, excessive_drinking) %>%
+  tbl_summary(by = "conference") %>%
+  add_overall()
 ```
 
-## Including Plots
 
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.

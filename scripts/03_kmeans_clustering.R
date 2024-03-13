@@ -15,7 +15,8 @@ df_full_dataset_no_ed_beds <- df %>%
          primary_care_physicians
          ) %>%
   mutate(across(where(is.numeric), ~scale(.)[, 1])) %>%
-  mutate(across(where(is.character), ~if_else(. == "yes", 1, 0)))
+  mutate(across(where(is.character), ~if_else(. == "yes", 1, 0))) %>%
+  filter(is.na(primary_care_physicians) == FALSE)
 
 
 df_full_dataset_no_ed_beds_m <- as.matrix(df_full_dataset_no_ed_beds)
@@ -50,11 +51,19 @@ p <- df %>%
              y = football_stadium_capacity,
              color = cluster)) +
   geom_point() +
-  geom_label_repel(aes(label = school))
+  geom_label_repel(aes(label = school), size = 3, show.legend = FALSE) +
+  ggthemes::theme_clean() +
+  scale_color_manual(values = c("#0b2341", "#e86100", "#006c9a", "#215834"),
+                     name = "Cluster assignment from\nKmeans algorithm") +
+  labs(
+    y = "Football stadium capacity",
+    x = "Log2(municipal population)"
+  ) +
+  theme(legend.position = "bottom")
 
 p
 
-ggsave("../figs/03_kmeans_4_scatterplot.png", p, width = 12, height = 7, units = "in")
+ggsave("../figs/03_kmeans_4_scatterplot.pdf", p, width = 14, height = 7, units = "in")
 
 k.means.5 <- kmeans(df_full_dataset_no_ed_beds_m, centers = 5, nstart = 20) 
 
